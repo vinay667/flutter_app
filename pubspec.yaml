@@ -43,36 +43,27 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - images/buy.png
+
     - images/cash_in.png
     - images/del.png
     - images/food.png
     - images/gifts.png
     - images/grocery.png
-    - images/imag_fine.jpg
-    - images/milk.png
-    - images/raichand.jpg
-    - images/rest1.png
-    - images/rest2.png
-    - images/rest3.png
-    - images/rewardsf.png
-    - images/triycle.png
-    - images/uio.png
     - images/search.png
-    - images/top_imag.png
     - images/hamb.png
     - images/cash_in.png
     - images/transport.png
     - images/cycle.png
     - images/milk_tea.png
     - images/pay.png
-    - images/top3.png
     - images/spanish_girl.jpg
     - images/food_1.jpeg
     - images/food_2.jpg
     - images/food_3.jpg
     - images/food_4.jpg
     - images/cart.png
+    - images/rewards.png
+    - images/top_final.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

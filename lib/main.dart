@@ -289,14 +289,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                               ),
                                               child: Center(
                                                   child: Image.asset(
-                                                    'images/cash_in.png',
-                                                    height: 26.7,
-                                                    width: 22.7,
+                                                    'images/drink_icon.png',
+                                                    height: 25.0,
+                                                    width: 20.7,
                                                   ))),
                                           Padding(
                                             padding: EdgeInsets.only(top: 10),
                                             child: Text(
-                                              'Cash In',
+                                              'Drinks',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.normal,
                                                   fontSize: 14,
@@ -406,14 +406,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                               ),
                                               child: Center(
                                                   child: Image.asset(
-                                                    'images/cycle.png',
-                                                    height: 26,
-                                                    width: 28.7,
+                                                    'images/foods_icon.png',
+                                                    height: 22.7,
+                                                    width: 22.7,
                                                   ))),
                                           Padding(
                                             padding: EdgeInsets.only(top: 10),
                                             child: Text(
-                                              'Tricycle',
+                                              'Food',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.normal,
                                                   fontSize: 14,
@@ -467,7 +467,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 child: Stack(
                   children: <Widget>[
                     Container(
-                        height: 560,
+                        height: 670,
                         color: MyColor.whiteColor,
                         child: Column(children: <Widget>[
                           Container(
@@ -481,247 +481,389 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                     fontFamily: 'GilroySemibold',
                                     decoration: TextDecoration.none),
                               )),
-                          Padding(padding: EdgeInsets.only(left: 15, right: 15)),
+                          Padding(padding: EdgeInsets.only(left: 15,top:20)),
 
-                          //First Horizonal List
+
                           Container(
-                              padding: EdgeInsets.only(top: 15),
-                              height: 120.0,
-                              child: Padding(
-                                  padding: EdgeInsets.only(bottom: 0),
-                                  child: ListView(
-                                    padding: EdgeInsets.only(left: 15,right:5),
-                                    scrollDirection: Axis.horizontal,
-                                    children: <Widget>[
-                                     Padding(
-                                       padding: EdgeInsets.only(bottom: 10),
-                                       child: Card(
-                                         elevation:6,
-                                         shape: RoundedRectangleBorder(
-                                             borderRadius: BorderRadius.circular(10)),
-                                         child: Container(
-                                           width: 85.7,
-                                           height:85.7,
-                                           child: Column(
-                                             children: <Widget>[
-                                               Padding(
-                                                 padding: EdgeInsets.only(top: 8),
-                                                 child: Image.asset(
-                                                   'images/del.png',
-                                                   height: 47.3,
-                                                   width: 59,
-                                                 ),
-                                               ),
-                                               Padding(
-                                                 padding: EdgeInsets.only(bottom: 5,top: 3),
-                                                 child: Text(
-                                                   'Delivery',
-                                                   style: TextStyle(
-
-                                                       fontWeight: FontWeight.normal,
-                                                       fontSize: 15,
-                                                       fontFamily: 'GilroySemibold',
-                                                       color: MyColor.textColorCircle,
-                                                       decoration: TextDecoration.none),
-                                                 ),
-                                               )
-                                             ],
-                                           ),
-                                         ),
-                                       ),
-
-                                     ),
-                                     Padding(
-                                       padding: EdgeInsets.only(bottom: 10),
-                                       child: Card(
-                                         elevation: 6,
-                                         shape: RoundedRectangleBorder(
-                                             borderRadius: BorderRadius.circular(10)),
-                                         child: Container(
-                                           padding: EdgeInsets.only(left: 0),
-                                           width: 85.7,
-                                           height:85.7,
-                                           child: Column(
-                                             children: <Widget>[
-                                               Padding(
-                                                 padding: EdgeInsets.only(top: 5),
-                                                 child: Image.asset(
-                                                   'images/milk_tea.png',
-                                                   height: 47.3,
-                                                   width: 59,                                                ),
-                                               ),
-                                               Padding(
-                                                 padding: EdgeInsets.only(bottom: 5,top:6),
-                                                 child: Text(
-                                                   'Milk Tea',
-                                                   style: TextStyle(
-                                                       fontSize: 15,
-                                                       fontFamily: 'GilroySemibold',
-                                                       color: MyColor.textColorCircle,
-                                                       decoration: TextDecoration.none),
-                                                 ),
-                                               )
-                                             ],
-                                           ),
-                                         ),
-                                       ),
-                                     ),
-
-                            /*  Padding(
-                                padding: EdgeInsets.only(bottom: 10),
-
-                              ),*/
-                                      Padding(
-                                        padding: EdgeInsets.only(bottom: 10),
-                                       child:Card(
-                                         elevation: 6,
-                                         shape: RoundedRectangleBorder(
-                                             borderRadius: BorderRadius.circular(10)),
-                                         child: Container(
-                                           width: 85.7,
-                                           height:85.7,
-                                           child: Column(
-                                             children: <Widget>[
-                                               Padding(
-                                                 padding: EdgeInsets.only(top: 8),
-                                                 child: Image.asset(
-                                                   'images/rewards.png',
-                                                   height: 47.3,
-                                                   width: 59,
-                                                 ),
-                                               ),
-                                               Padding(
-                                                 padding: EdgeInsets.only(bottom: 5,top:3),
-                                                 child: Text(
-                                                   'Rewards',
-                                                   style: TextStyle(
-                                                       fontSize: 15,
-                                                       fontFamily: 'GilroySemibold',
-                                                       color: MyColor.textColorCircle,
-                                                       decoration: TextDecoration.none),
-                                                 ),
-                                               )
-                                             ],
-                                           ),
-                                         ),
-                                       ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(bottom: 10),
-                                       child: Card(
-                                         elevation: 6,
-                                         shape: RoundedRectangleBorder(
-                                             borderRadius: BorderRadius.circular(10)),
-                                         child: Container(
-                                           width: 85.7,
-                                           height: 85.7,
-                                           child: Column(
-                                             children: <Widget>[
-                                               Padding(
-                                                 padding: EdgeInsets.only(top: 8),
-                                                 child: Image.asset(
-                                                   'images/gifts.png',
-                                                   height: 47.3,
-                                                   width: 59,
-                                                 ),
-                                               ),
-                                               Padding(
-                                                 padding: EdgeInsets.only(bottom: 5,top:3),
-                                                 child: Text(
-                                                   'Gifts',
-                                                   style: TextStyle(
-                                                       fontSize: 15,
-                                                       fontFamily: 'GilroySemibold',
-                                                       color: MyColor.textColorCircle,
-                                                       decoration: TextDecoration.none),
-                                                 ),
-                                               )
-                                             ],
-                                           ),
-                                         ),
-                                       ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(bottom: 10),
-                                           child:Card(
-                                             elevation:6,
-                                             shape: RoundedRectangleBorder(
-                                                 borderRadius: BorderRadius.circular(10)),
-                                             child: Container(
-                                               width: 85.7,
-                                               height:85.7,
-                                               child: Column(
-                                                 children: <Widget>[
-                                                   Padding(
-                                                     padding: EdgeInsets.only(top: 10),
-                                                     child: Image.asset(
-                                                       'images/food.png',
-                                                       height: 37,
-                                                       width: 61.7,
-                                                     ),
-                                                   ),
-                                                   Padding(
-                                                     padding: EdgeInsets.only(bottom: 5,top:10),
-                                                     child: Text(
-                                                       'Food',
-                                                       style: TextStyle(
-                                                           fontSize: 15,
-                                                           fontFamily: 'GilroySemibold',
-                                                           color: MyColor.textColorCircle,
-                                                           decoration: TextDecoration.none),
-                                                     ),
-                                                   )
-                                                 ],
-                                               ),
-                                             ),
-                                           ),
-                                      ),
-
-                                      Padding(
-                                        padding: EdgeInsets.only(bottom: 10),
-                                        child:Card(
-                                          elevation:6,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(10)),
-                                          child: Container(
-                                            width: 85.7,
-                                            height:85.7,
-                                            child: Column(
-                                              children: <Widget>[
-                                                Padding(
-                                                  padding: EdgeInsets.only(top: 10),
-                                                  child: Image.asset(
-                                                    'images/pay.png',
-                                                    height: 37,
-                                                    width: 61.7,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(bottom: 5,top:10),
-                                                  child: Text(
-                                                    'Pay',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontFamily: 'GilroySemibold',
-                                                        color: MyColor.textColorCircle,
-                                                        decoration: TextDecoration.none),
-                                                  ),
-                                                )
-                                              ],
+                          
+                              padding: EdgeInsets.only(left:10),
+                              height:104.0,
+                              child:Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/del.png',
+                                                height: 52.7,
+                                                width: 52.7,
+                                              ),
                                             ),
-                                          ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 0,top: 7),
+                                              child: Text(
+                                                'Delivery',
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
                                         ),
                                       ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/gifts.png',
+                                                height: 60,
+                                                width: 60,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Gifts',
+                                                style: TextStyle(
+
+
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/rewards.png',
+                                                height: 60,
+                                                width: 60,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Rewards',
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/pay.png',
+                                                height: 60,
+                                                width: 60,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Pay',
+                                                style: TextStyle(
+
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
 
 
 
 
 
-                                    ],
-                                  )
+                              ],
 
 
-                              )),
+
+
+                              ),
+
+                             ),
+
+
+                          ///Second Grid
+
+
+
+
+
+
+                          Container(
+                            padding: EdgeInsets.only(left:10),
+                            height:104.0,
+                            child:Row(
+                              children: <Widget>[
+
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/marketplace.png',
+                                                height: 60,
+                                                width: 60,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Market',
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/reload.png',
+                                                height: 60,
+                                                width: 60,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Reload',
+                                                style: TextStyle(
+
+
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/cash_2.png',
+                                                height: 60.0,
+                                                width: 60.0,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Cash In',
+                                                style: TextStyle(
+
+
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+                                Expanded(
+                                  child:Padding(
+                                    padding: EdgeInsets.only(bottom: 0),
+                                    child: Card(
+                                      elevation:5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8)),
+                                      child: Container(
+                                        height:85.7,
+                                        child: Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 1),
+                                              child: Image.asset(
+                                                'images/tri3.png',
+                                                height: 60,
+                                                width: 60,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 1,top: 1),
+                                              child: Text(
+                                                'Tricycle',
+                                                style: TextStyle(
+
+
+                                                    fontSize: 14,
+                                                    fontFamily: 'GilroySemibold',
+                                                    color: MyColor.textColorCircle,
+                                                    decoration: TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+
+                                  ),
+                                  flex: 1,
+
+                                ),
+
+
+
+
+
+
+                              ],
+
+
+
+
+                            ),
+
+                          ),
+
+
                           Padding(
                             padding: EdgeInsets.only(top: 30),
                           ),

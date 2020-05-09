@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'colors.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
@@ -111,6 +112,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   AnimationController _controller;
   double opacityValue = 1.0;
   double opacityValue2 = 1.0;
+  List<String> imageUriList = <String>[
+    'images/food_1.jpeg',
+    'images/food_2.jpg',
+    'images/food_3.jpg',
+    'images/food_4.jpg'
+  ];
 
   @override
   void initState() {
@@ -154,1290 +161,765 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     timeDilation = 3.0;
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: MyColor.greenColorTheme));
     return MaterialApp(
-      home: Stack(
-        children: <Widget>[
-          CustomScrollView(
-            controller: _controller22,
-            slivers: <Widget>[
-              //Toolbar code
-              SliverAppBar(
-                  expandedHeight: 460.0,
-                  title: AnimatedOpacity(
-                    opacity: opacityValue,
-                    duration: Duration(milliseconds: 10),
-                    child: Text(
-                      myTitle,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'GilroySemibold',
-                          color: MyColor.textColorBlue,
-                          decoration: TextDecoration.none),
-                    ),
+        home: Stack(
+      children: <Widget>[
+        CustomScrollView(
+          controller: _controller22,
+          slivers: <Widget>[
+            //Toolbar code
+            SliverAppBar(
+                expandedHeight: 460.0,
+                title: AnimatedOpacity(
+                  opacity: opacityValue,
+                  duration: Duration(milliseconds: 10),
+                  child: Text(
+                    myTitle,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'GilroySemibold',
+                        color: MyColor.textColorBlue,
+                        decoration: TextDecoration.none),
                   ),
-                  backgroundColor: MyColor.whiteColor,
-                  pinned: true,
-                  leading: AnimatedOpacity(
-                    opacity: opacityValue2,
-                    duration: Duration(milliseconds: 50),
-                    child: Container(
+                ),
+                backgroundColor: MyColor.whiteColor,
+                pinned: true,
+                leading: AnimatedOpacity(
+                  opacity: opacityValue2,
+                  duration: Duration(milliseconds: 50),
+                  child: Container(
                       height: 39,
-                        width: 37,
-                        margin: EdgeInsets.only(left: 12, top: 6, bottom: 6),
-                        decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                                fit: BoxFit.fill,
-                                image: new AssetImage("images/spanish_girl.jpg")))),
-                  ),
-                  actions: <Widget>[
-                    IconButton(
-                      icon: Image.asset(
-                        'images/hamb.png',
-                        width: 15,
-                        height: 15,
-                      ),
-                      tooltip: 'Add new entry',
-                      onPressed: () {
-                        /* ... */
-                      },
+                      width: 37,
+                      margin: EdgeInsets.only(left: 12, top: 6, bottom: 6),
+                      decoration: new BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(
+                              fit: BoxFit.fill,
+                              image:
+                                  new AssetImage("images/spanish_girl.jpg")))),
+                ),
+                actions: <Widget>[
+                  IconButton(
+                    icon: Image.asset(
+                      'images/hamb.png',
+                      width: 15,
+                      height: 15,
                     ),
-                  ],
+                    tooltip: 'Add new entry',
+                    onPressed: () {
+                      /* ... */
+                    },
+                  ),
+                ],
 
-                  //The area which will be collapsed with the toolbar
+                //The area which will be collapsed with the toolbar
 
-                  flexibleSpace: new FlexibleSpaceBar(
-                      background: Stack(
-                        children: <Widget>[
-                          Image.asset(
-                            'images/top_final.png',
-                            height: 420,
-                            fit: BoxFit.fill,
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.only(top: 100, left: 15),
-                                child: Text(
-                                  "What's your mood ?",
-                                  style: TextStyle(
-                                    decoration: TextDecoration.none,
-                                    fontSize: 30,
-                                    fontFamily: 'GilroySemibold',
-                                    color: MyColor.textColorBlue,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.only(top: 15, left: 15),
-                                child: Row(
-                                  children: <Widget>[
-                                    Text(
-                                      'Get',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontFamily: 'GilroyLight',
-                                        color: MyColor.textColorBlue,
-                                        decoration: TextDecoration.none,
-                                      ),
-                                    ),
-                                    Padding(
-                                        padding: EdgeInsets.only(left: 5),
-                                        child: Text(
-                                          'Everything',
-                                          style: TextStyle(
-                                              fontSize: 19,
-                                              fontFamily: 'GilroySemibold',
-                                              color: MyColor.textColorBlue,
-                                              decoration: TextDecoration.none),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(left: 5),
-                                        child: Text(
-                                          'at Home',
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'GilroyLight',
-                                              decoration: TextDecoration.none,
-                                              color: MyColor.textColorBlue),
-                                        ))
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 20, right: 20, top: 30),
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Container(
-                                              width: 54.7,
-                                              height: 54.7,
-                                              decoration: new BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                      color: Colors.black26,
-                                                      blurRadius: 8.0,
-                                                      offset: Offset(1.0, 1.0),
-                                                      spreadRadius: 0.0)
-                                                ],
-                                              ),
-                                              child: Center(
-                                                  child: Image.asset(
-                                                    'images/drink_icon.png',
-                                                    height: 25.0,
-                                                    width: 20.7,
-                                                  ))),
-                                          Padding(
-                                            padding: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              'Drinks',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 14,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      flex: 1,
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Container(
-                                              width: 54.7,
-                                              height: 54.7,
-                                              decoration: new BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                      color: Colors.black26,
-                                                      blurRadius: 8.0,
-                                                      offset: Offset(1.0, 1.0),
-                                                      spreadRadius: 0.0)
-                                                ],
-                                              ),
-                                              child: Center(
-                                                  child: Image.asset(
-                                                    'images/grocery.png',
-                                                    height: 25,
-                                                    width: 26,
-                                                  ))),
-                                          Padding(
-                                            padding: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              'Grocery',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 14,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      flex: 1,
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Container(
-                                              width: 54.7,
-                                              height: 54.7,
-                                              decoration: new BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                      color: Colors.black26,
-                                                      blurRadius: 8.0,
-                                                      offset: Offset(1.0, 1.0),
-                                                      spreadRadius: 0.0)
-                                                ],
-                                              ),
-                                              child: Center(
-                                                  child: Image.asset(
-                                                    'images/transport.png',
-                                                    height: 22,
-                                                    width: 30.7,
-                                                  ))),
-                                          Padding(
-                                            padding: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              'Transport',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 14,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      flex: 1,
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Container(
-                                              width: 54.7,
-                                              height: 54.7,
-                                              decoration: new BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                      color: Colors.black26,
-                                                      blurRadius: 8.0,
-                                                      offset: Offset(1.0, 1.0),
-                                                      spreadRadius: 0.0)
-                                                ],
-                                              ),
-                                              child: Center(
-                                                  child: Image.asset(
-                                                    'images/foods_icon.png',
-                                                    height: 22.7,
-                                                    width: 22.7,
-                                                  ))),
-                                          Padding(
-                                            padding: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              'Food',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 14,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      flex: 1,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 100),
-                              ),
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    _playAnimation();
-                                  },
-                                  child: Container(
-                                    child:
-                                    StaggerAnimation(controller: _controller.view),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 15),
-                              ),
-                              Align(
-                                  alignment: Alignment.center,
-                                  child: Text('Find your desire...',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        decoration: TextDecoration.none,
-                                        color: MyColor.textColorgreySoft,
-                                        fontFamily: 'GilroyLight',
-                                      ))),
-                            ],
-                          ),
-                        ],
-                      ))),
-
-              //Non collapsed area UI Code
-
-              SliverToBoxAdapter(
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                        height: 670,
-                        color: MyColor.whiteColor,
-                        child: Column(children: <Widget>[
-                          Container(
+                flexibleSpace: new FlexibleSpaceBar(
+                    background: Container(
+                        color: MyColor.bgColor,
+                        child: Stack(
+                          children: <Widget>[
+                            Image.asset(
+                              'images/top_final.png',
+                              height: 420,
                               width: double.infinity,
-                              margin: EdgeInsets.only(left: 15, top: 15),
-                              child: Text(
-                                'Explore Jexmovers',
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    color: MyColor.textColorBlue,
-                                    fontFamily: 'GilroySemibold',
-                                    decoration: TextDecoration.none),
-                              )),
-                          Padding(padding: EdgeInsets.only(left: 15,top:20)),
-
-
-                          Container(
-                          
-                              padding: EdgeInsets.only(left:10),
-                              height:104.0,
-                              child:Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/del.png',
-                                                height: 52.7,
-                                                width: 52.7,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 0,top: 7),
-                                              child: Text(
-                                                'Delivery',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/gifts.png',
-                                                height: 60,
-                                                width: 60,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Gifts',
-                                                style: TextStyle(
-
-
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/rewards.png',
-                                                height: 60,
-                                                width: 60,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Rewards',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/pay.png',
-                                                height: 60,
-                                                width: 60,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Pay',
-                                                style: TextStyle(
-
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-
-
-
-
-                              ],
-
-
-
-
-                              ),
-
-                             ),
-
-
-                          ///Second Grid
-
-
-
-
-
-
-                          Container(
-                            padding: EdgeInsets.only(left:10),
-                            height:104.0,
-                            child:Row(
-                              children: <Widget>[
-
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/marketplace.png',
-                                                height: 60,
-                                                width: 60,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Market',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/reload.png',
-                                                height: 60,
-                                                width: 60,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Reload',
-                                                style: TextStyle(
-
-
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/cash_2.png',
-                                                height: 60.0,
-                                                width: 60.0,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Cash In',
-                                                style: TextStyle(
-
-
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-                                Expanded(
-                                  child:Padding(
-                                    padding: EdgeInsets.only(bottom: 0),
-                                    child: Card(
-                                      elevation:5,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8)),
-                                      child: Container(
-                                        height:85.7,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding: EdgeInsets.only(top: 1),
-                                              child: Image.asset(
-                                                'images/tri3.png',
-                                                height: 60,
-                                                width: 60,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(bottom: 1,top: 1),
-                                              child: Text(
-                                                'Tricycle',
-                                                style: TextStyle(
-
-
-                                                    fontSize: 14,
-                                                    fontFamily: 'GilroySemibold',
-                                                    color: MyColor.textColorCircle,
-                                                    decoration: TextDecoration.none),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-
-                                  ),
-                                  flex: 1,
-
-                                ),
-
-
-
-
-
-
-                              ],
-
-
-
-
+                              fit: BoxFit.fill,
                             ),
-
-                          ),
-
-
-                          Padding(
-                            padding: EdgeInsets.only(top: 30),
-                          ),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Container(
-                                  padding: EdgeInsets.only(left: 15),
+                            Column(
+                              children: <Widget>[
+                                Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.only(top: 100, left: 15),
                                   child: Text(
-                                    'Nearby Restaurants',
+                                    "What's your mood ?",
                                     style: TextStyle(
-                                        fontSize: 22,
-                                        color: MyColor.textColorBlue,
-                                        fontFamily: 'GilroySemibold',
-                                        decoration: TextDecoration.none),
-                                  )),
-                              Container(
-                                height:31,
-                                width:105,
-                                padding: EdgeInsets.only(right: 15),
-                                child: FlatButton(
-                                  shape: new RoundedRectangleBorder(
-                                      borderRadius: new BorderRadius.circular(10.0),
-                                      side: BorderSide(
-                                          color: MyColor.btnBorderColor)),
-                                  color: MyColor.greyLightColor,
-                                  textColor: MyColor.darkBlack,
-                                  padding: EdgeInsets.all(8.0),
-                                  onPressed: () {},
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 7, right: 7),
-                                    child: Text(
-                                      "SHOW All".toUpperCase(),
-                                      style: TextStyle(
-                                        fontSize: 12.0,
-                                        fontFamily: 'GilroyBold',
+                                      decoration: TextDecoration.none,
+                                      fontSize: 30,
+                                      fontFamily: 'GilroySemibold',
+                                      color: MyColor.textColorBlue,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.only(top: 10, left: 15),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Text(
+                                        'Get',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontFamily: 'GilroyLight',
+                                          color: MyColor.textColorBlue,
+                                          decoration: TextDecoration.none,
+                                        ),
+                                      ),
+                                      Padding(
+                                          padding: EdgeInsets.only(left: 5),
+                                          child: Text(
+                                            'Everything',
+                                            style: TextStyle(
+                                                fontSize: 19,
+                                                fontFamily: 'GilroySemibold',
+                                                color: MyColor.textColorBlue,
+                                                decoration:
+                                                    TextDecoration.none),
+                                          )),
+                                      Padding(
+                                          padding: EdgeInsets.only(left: 5),
+                                          child: Text(
+                                            'at Home',
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontFamily: 'GilroyLight',
+                                                decoration: TextDecoration.none,
+                                                color: MyColor.textColorBlue),
+                                          ))
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 20, right: 20, top: 30),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            Container(
+                                                width: 54.7,
+                                                height: 54.7,
+                                                decoration: new BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.black26,
+                                                        blurRadius: 8.0,
+                                                        offset:
+                                                            Offset(1.0, 1.0),
+                                                        spreadRadius: 0.0)
+                                                  ],
+                                                ),
+                                                child: Center(
+                                                    child: Image.asset(
+                                                  'images/drink_icon.png',
+                                                  height: 25.0,
+                                                  width: 20.7,
+                                                ))),
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                'Drinks',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontSize: 14,
+                                                    fontFamily:
+                                                        'GilroySemibold',
+                                                    color: Colors.white,
+                                                    decoration:
+                                                        TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        flex: 1,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            Container(
+                                                width: 54.7,
+                                                height: 54.7,
+                                                decoration: new BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.black26,
+                                                        blurRadius: 8.0,
+                                                        offset:
+                                                            Offset(1.0, 1.0),
+                                                        spreadRadius: 0.0)
+                                                  ],
+                                                ),
+                                                child: Center(
+                                                    child: Image.asset(
+                                                  'images/grocery.png',
+                                                  height: 25,
+                                                  width: 26,
+                                                ))),
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                'Grocery',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontSize: 14,
+                                                    fontFamily:
+                                                        'GilroySemibold',
+                                                    color: Colors.white,
+                                                    decoration:
+                                                        TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        flex: 1,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            Container(
+                                                width: 54.7,
+                                                height: 54.7,
+                                                decoration: new BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.black26,
+                                                        blurRadius: 8.0,
+                                                        offset:
+                                                            Offset(1.0, 1.0),
+                                                        spreadRadius: 0.0)
+                                                  ],
+                                                ),
+                                                child: Center(
+                                                    child: Image.asset(
+                                                  'images/transport.png',
+                                                  height: 22,
+                                                  width: 30.7,
+                                                ))),
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                'Transport',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontSize: 14,
+                                                    fontFamily:
+                                                        'GilroySemibold',
+                                                    color: Colors.white,
+                                                    decoration:
+                                                        TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        flex: 1,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          children: <Widget>[
+                                            Container(
+                                                width: 54.7,
+                                                height: 54.7,
+                                                decoration: new BoxDecoration(
+                                                  color: Colors.white,
+                                                  shape: BoxShape.circle,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.black26,
+                                                        blurRadius: 8.0,
+                                                        offset:
+                                                            Offset(1.0, 1.0),
+                                                        spreadRadius: 0.0)
+                                                  ],
+                                                ),
+                                                child: Center(
+                                                    child: Image.asset(
+                                                  'images/foods_icon.png',
+                                                  height: 22.7,
+                                                  width: 22.7,
+                                                ))),
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                'Food',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontSize: 14,
+                                                    fontFamily:
+                                                        'GilroySemibold',
+                                                    color: Colors.white,
+                                                    decoration:
+                                                        TextDecoration.none),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        flex: 1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 110),
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      _playAnimation();
+                                    },
+                                    child: Container(
+                                      child: StaggerAnimation(
+                                          controller: _controller.view),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 15),
+                                ),
+                                Align(
+                                    alignment: Alignment.center,
+                                    child: Text('Find your desire...',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          decoration: TextDecoration.none,
+                                          color: MyColor.textColorgreySoft,
+                                          fontFamily: 'GilroyLight',
+                                        ))),
+                              ],
+                            ),
+                          ],
+                        )))),
+
+            //Non collapsed area UI Code
+
+            SliverToBoxAdapter(
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                      height: 565,
+                      color: MyColor.bgColor,
+                      child: Column(children: <Widget>[
+                        Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.only(left: 15, top: 15),
+                            child: Text(
+                              'Explore Jexmovers',
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  color: MyColor.textColorBlue,
+                                  fontFamily: 'GilroySemibold',
+                                  decoration: TextDecoration.none),
+                            )),
+                        Padding(padding: EdgeInsets.only(left: 15, top: 20)),
+
+                        Container(
+                          padding: EdgeInsets.only(left: 10),
+                          height: 104.0,
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.only(bottom: 0),
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(11.7)),
+                                    child: Container(
+                                      height: 85.7,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 1),
+                                            child: Image.asset(
+                                              'images/del.png',
+                                              height: 52.7,
+                                              width: 52.7,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                bottom: 0, top: 7),
+                                            child: Text(
+                                              'Delivery',
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  fontFamily: 'GilroySemibold',
+                                                  color:
+                                                      MyColor.textColorCircle,
+                                                  decoration:
+                                                      TextDecoration.none),
+                                            ),
+                                          )
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
+                                flex: 1,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.only(bottom: 0),
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(11.7)),
+                                    child: Container(
+                                      height: 85.7,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 1),
+                                            child: Image.asset(
+                                              'images/pay.png',
+                                              height: 60,
+                                              width: 60,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                bottom: 1, top: 1),
+                                            child: Text(
+                                              'Pay',
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  fontFamily: 'GilroySemibold',
+                                                  color:
+                                                      MyColor.textColorCircle,
+                                                  decoration:
+                                                      TextDecoration.none),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                flex: 1,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.only(bottom: 0),
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(11.7)),
+                                    child: Container(
+                                      height: 85.7,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 1),
+                                            child: Image.asset(
+                                              'images/marketplace.png',
+                                              height: 60,
+                                              width: 60,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                bottom: 1, top: 2),
+                                            child: Text(
+                                              'Marketplace',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontFamily: 'GilroySemibold',
+                                                  color:
+                                                      MyColor.textColorCircle,
+                                                  decoration:
+                                                      TextDecoration.none),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                flex: 1,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.only(bottom: 0),
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(11.7)),
+                                    child: Container(
+                                      height: 85.7,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 1),
+                                            child: Image.asset(
+                                              'images/tri3.png',
+                                              height: 60,
+                                              width: 60,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                bottom: 1, top: 1),
+                                            child: Text(
+                                              'Tricycle',
+                                              style: TextStyle(
+                                                  fontSize: 13,
+                                                  fontFamily: 'GilroySemibold',
+                                                  color:
+                                                      MyColor.textColorCircle,
+                                                  decoration:
+                                                      TextDecoration.none),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                flex: 1,
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10),
-                          ),
+                        ),
 
-                          //Second Horizontal List
-                          Container(
-                              padding: EdgeInsets.only(top: 10),
-                              height: 290,
-                              child: new ListView(
+                        ///Second Grid
+
+                        Padding(
+                          padding: EdgeInsets.only(top: 30),
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                                padding: EdgeInsets.only(left: 15),
+                                child: Text(
+                                  'Nearby Restaurants',
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      color: MyColor.textColorBlue,
+                                      fontFamily: 'GilroySemibold',
+                                      decoration: TextDecoration.none),
+                                )),
+                            Container(
+                              height: 31,
+                              width: 105,
+                              padding: EdgeInsets.only(right: 15),
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(10.0),
+                                    side: BorderSide(
+                                        color: MyColor.btnBorderColor)),
+                                color: MyColor.greyLightColor,
+                                textColor: MyColor.darkBlack,
+                                padding: EdgeInsets.all(8.0),
+                                onPressed: () {},
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 7, right: 7),
+                                  child: Text(
+                                    "SHOW All".toUpperCase(),
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                      fontFamily: 'GilroyBold',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                        ),
+
+                        //Second Horizontal List
+                        Container(
+                            padding: EdgeInsets.only(top: 15),
+                            height: 290,
+                            child: new ListView.builder(
                                 padding: EdgeInsets.only(left: 15),
                                 scrollDirection: Axis.horizontal,
-                                children: <Widget>[
-                                  Stack(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 22),
-                                        child: Card(
-                                          elevation: 10,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(10)),
-                                          child: Container(
-                                            height: 230,
-                                            width: 260,
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        children: <Widget>[
-                                          Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 18, right: 10),
+                                itemCount: imageUriList.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Container(
+                                    padding: EdgeInsets.only(left: 5),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 22),
+                                          child: Card(
+                                            elevation: 10,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            child: Container(
+                                              height: 230,
                                               width: 260,
-                                              height: 130,
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                  BorderRadius.circular(15.0),
-                                                  child: Image.asset(
-                                                      'images/food_1.jpeg',
-                                                      fit: BoxFit.fitWidth))),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(top: 20, left: 18),
-                                            child: Text(
-                                              'Limoncello',
-                                              style: TextStyle(
-                                                  fontSize: 24,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                              textAlign: TextAlign.left,
                                             ),
                                           ),
-                                          Container(
+                                        ),
+                                        Column(
+                                          children: <Widget>[
+                                            Container(
+                                                padding: EdgeInsets.only(
+                                                    left: 18, right: 10),
+                                                width: 260,
+                                                height: 130,
+                                                child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15.0),
+                                                    child: Image.asset(
+                                                        imageUriList[index],
+                                                        fit: BoxFit.fitWidth))),
+                                            Container(
+                                              width: 260,
+                                              padding: EdgeInsets.only(
+                                                  top: 20, left: 18, right: 10),
+                                              child: Text(
+                                                'Limoncello',
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                    fontSize: 24,
+                                                    fontFamily:
+                                                        'GilroySemibold',
+                                                    color:
+                                                        MyColor.textColorCircle,
+                                                    decoration:
+                                                        TextDecoration.none),
+                                                textAlign: TextAlign.left,
+                                              ),
+                                            ),
+                                            Container(
+                                                width: 260,
+                                                padding: EdgeInsets.only(
+                                                    left: 18,
+                                                    top: 10,
+                                                    right: 10),
+                                                child: Row(
+                                                  children: <Widget>[
+                                                    Text(
+                                                      'LUNCH SETS',
+                                                      style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontFamily:
+                                                              'GilroyLight',
+                                                          color:
+                                                              MyColor.textSoft,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none),
+                                                      textAlign: TextAlign.left,
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 5,
+                                                          right: 5,
+                                                          bottom: 5),
+                                                      child: Text(
+                                                        '.',
+                                                        style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontFamily:
+                                                                'GilroyLight',
+                                                            color: MyColor
+                                                                .textSoft,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child: Text(
+                                                        'SANDWICHES',
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                            fontSize: 14,
+                                                            fontFamily:
+                                                                'GilroyLight',
+                                                            color: MyColor
+                                                                .textSoft,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .none),
+                                                        textAlign:
+                                                            TextAlign.left,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )),
+                                            Container(
                                               width: 260,
                                               padding: EdgeInsets.only(
                                                   left: 18, top: 10),
                                               child: Row(
                                                 children: <Widget>[
-                                                  Text(
-                                                    'LUNCH SETS',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontFamily: 'GilroyLight',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
+                                                  Icon(
+                                                    Icons.star,
+                                                    color: MyColor.iconColor,
                                                   ),
                                                   Padding(
                                                     padding: EdgeInsets.only(
-                                                        left: 5,
-                                                        right: 5,
-                                                        bottom: 5),
+                                                        left: 5),
                                                     child: Text(
-                                                      '.',
+                                                      '4.5',
                                                       style: TextStyle(
-                                                          fontSize: 14,
-                                                          fontFamily: 'GilroyLight',
-                                                          color: MyColor.textSoft,
+                                                          fontSize: 17,
+                                                          fontFamily:
+                                                              'GilroySemibold',
+                                                          color: MyColor
+                                                              .textColorCircle,
                                                           decoration:
-                                                          TextDecoration.none),
+                                                              TextDecoration
+                                                                  .none),
+                                                      textAlign: TextAlign.left,
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    'SANDWICHES',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontFamily: 'GilroyLight',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
+                                                  )
                                                 ],
-                                              )),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(left: 18, top: 10),
-                                            child: Row(
-                                              children: <Widget>[
-                                                Icon(
-                                                  Icons.star,
-                                                  color: MyColor.iconColor,
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left: 5),
-                                                  child: Text(
-                                                    '4.5',
-                                                    style: TextStyle(
-                                                        fontSize: 17,
-                                                        fontFamily:
-                                                        'GilroySemibold',
-                                                        color:
-                                                        MyColor.textColorCircle,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  Stack(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 22),
-                                        child: Card(
-                                          elevation: 10,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(10)),
-                                          child: Container(
-                                            height: 230,
-                                            width: 260,
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        children: <Widget>[
-                                          Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 18, right: 10),
-                                              width: 260,
-                                              height: 130,
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                  BorderRadius.circular(15.0),
-                                                  child: Image.asset(
-                                                      'images/food_2.jpg',
-                                                      fit: BoxFit.fitWidth))),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(top: 20, left: 18),
-                                            child: Text(
-                                              'Limoncello',
-                                              style: TextStyle(
-                                                  fontSize: 24,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                              textAlign: TextAlign.left,
-                                            ),
-                                          ),
-                                          Container(
-                                              width: 260,
-                                              padding: EdgeInsets.only(
-                                                  left: 18, top: 10),
-                                              child: Row(
-                                                children: <Widget>[
-                                                  Text(
-                                                    'LUNCH SETS',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                        FontWeight.normal,
-                                                        fontFamily:
-                                                        'fonts/gile.otf',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 5,
-                                                        right: 5,
-                                                        bottom: 5),
-                                                    child: Text(
-                                                      '.',
-                                                      style: TextStyle(
-                                                          fontSize: 14,
-                                                          fontFamily: 'GilroyLight',
-                                                          color: MyColor.textSoft,
-                                                          decoration:
-                                                          TextDecoration.none),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    'SANDWICHES',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontFamily: 'GilroyLight',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                ],
-                                              )),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(left: 18, top: 10),
-                                            child: Row(
-                                              children: <Widget>[
-                                                Icon(
-                                                  Icons.star,
-                                                  color: MyColor.iconColor,
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left: 5),
-                                                  child: Text(
-                                                    '4.5',
-                                                    style: TextStyle(
-                                                        fontSize: 17,
-                                                        fontFamily:
-                                                        'GilroySemibold',
-                                                        color:
-                                                        MyColor.textColorCircle,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  Stack(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 22),
-                                        child: Card(
-                                          elevation: 10,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(10)),
-                                          child: Container(
-                                            height: 230,
-                                            width: 260,
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        children: <Widget>[
-                                          Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 18, right: 10),
-                                              width: 260,
-                                              height: 130,
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                  BorderRadius.circular(15.0),
-                                                  child: Image.asset(
-                                                      'images/food_3.jpg',
-                                                      fit: BoxFit.fitWidth))),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(top: 20, left: 18),
-                                            child: Text(
-                                              'Limoncello',
-                                              style: TextStyle(
-                                                  fontSize: 24,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                              textAlign: TextAlign.left,
-                                            ),
-                                          ),
-                                          Container(
-                                              width: 260,
-                                              padding: EdgeInsets.only(
-                                                  left: 18, top: 10),
-                                              child: Row(
-                                                children: <Widget>[
-                                                  Text(
-                                                    'LUNCH SETS',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                        FontWeight.normal,
-                                                        fontFamily:
-                                                        'fonts/gile.otf',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 5,
-                                                        right: 5,
-                                                        bottom: 5),
-                                                    child: Text(
-                                                      '.',
-                                                      style: TextStyle(
-                                                          fontSize: 14,
-                                                          fontFamily: 'GilroyLight',
-                                                          color: MyColor.textSoft,
-                                                          decoration:
-                                                          TextDecoration.none),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    'SANDWICHES',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontFamily: 'GilroyLight',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                ],
-                                              )),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(left: 18, top: 10),
-                                            child: Row(
-                                              children: <Widget>[
-                                                Icon(
-                                                  Icons.star,
-                                                  color: MyColor.iconColor,
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left: 5),
-                                                  child: Text(
-                                                    '4.5',
-                                                    style: TextStyle(
-                                                        fontSize: 17,
-                                                        fontFamily:
-                                                        'GilroySemibold',
-                                                        color:
-                                                        MyColor.textColorCircle,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  Stack(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 22),
-                                        child: Card(
-                                          elevation: 10,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(10)),
-                                          child: Container(
-                                            height: 230,
-                                            width: 260,
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        children: <Widget>[
-                                          Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 18, right: 10),
-                                              width: 260,
-                                              height: 130,
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                  BorderRadius.circular(15.0),
-                                                  child: Image.asset(
-                                                      'images/food_4.jpg',
-                                                      fit: BoxFit.fitWidth))),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(top: 20, left: 18),
-                                            child: Text(
-                                              'Limoncello',
-                                              style: TextStyle(
-                                                  fontSize: 24,
-                                                  fontFamily: 'GilroySemibold',
-                                                  color: MyColor.textColorCircle,
-                                                  decoration: TextDecoration.none),
-                                              textAlign: TextAlign.left,
-                                            ),
-                                          ),
-                                          Container(
-                                              width: 260,
-                                              padding: EdgeInsets.only(
-                                                  left: 18, top: 10),
-                                              child: Row(
-                                                children: <Widget>[
-                                                  Text(
-                                                    'LUNCH SETS',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                        FontWeight.normal,
-                                                        fontFamily:
-                                                        'fonts/gile.otf',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 5,
-                                                        right: 5,
-                                                        bottom: 5),
-                                                    child: Text(
-                                                      '.',
-                                                      style: TextStyle(
-                                                          fontSize: 14,
-                                                          fontFamily: 'GilroyLight',
-                                                          color: MyColor.textSoft,
-                                                          decoration:
-                                                          TextDecoration.none),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    'SANDWICHES',
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontFamily: 'GilroyLight',
-                                                        color: MyColor.textSoft,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                ],
-                                              )),
-                                          Container(
-                                            width: 260,
-                                            padding:
-                                            EdgeInsets.only(left: 18, top: 10),
-                                            child: Row(
-                                              children: <Widget>[
-                                                Icon(
-                                                  Icons.star,
-                                                  color: MyColor.iconColor,
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left: 5),
-                                                  child: Text(
-                                                    '4.5',
-                                                    style: TextStyle(
-                                                        fontSize: 17,
-                                                        fontFamily:
-                                                        'GilroySemibold',
-                                                        color:
-                                                        MyColor.textColorCircle,
-                                                        decoration:
-                                                        TextDecoration.none),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              )),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                          ),
-                        ])),
+                                              ),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                })),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                        ),
+                      ])),
 
-                    //FloatingButton Code
-                  
-                  ],
-                ),
+                  //FloatingButton Code
+                ],
               ),
-            ],
-          ),
-
-          Positioned(
-              right: 20,
-              bottom: 30,
-              child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    width: 70,
-                    height: 70,
-                    child: FloatingActionButton(
-                      child: Image.asset('images/cart.png',
-                          width: 36, height: 24),
-                      backgroundColor: MyColor.pinkColor,
-                      onPressed: () {},
-                    ),
-                  ))),
-
-        ],
-
-
-      )
-
-
-    );
+            ),
+          ],
+        ),
+        Positioned(
+            right: 7,
+            bottom: 25,
+            child: Align(
+                alignment: Alignment.bottomRight,
+                child: Container(
+                    width: 90,
+                    height: 90,
+                    child: Stack(
+                      children: <Widget>[
+                        Image.asset('images/float.png'),
+                        Center(
+                          child: Image.asset('images/cart.png',
+                              width: 36, height: 24),
+                        )
+                      ],
+                    )))),
+      ],
+    ));
   }
 }
-
-
-
-

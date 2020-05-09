@@ -25,4 +25,6 @@ class MyColor {
   static const iconColor = Color(0xFF778BB6);
   static const pinkColor = Color(0xFFFD2E96);
   static const darkBlack = Color(0xFF0b0a0f);
+  static const greenColorTheme = Color(0xFF00755f);
+  static const bgColor = Color(0xFFf6f6f6);
 }
